@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .form-group.hidden {
+      display: none;
+    }
+    
+    body {
+      background-color: #e0f2f1; /* Light Green */
+    }
+    
+    .container {
+      background-color: #b3e5fc; /* Sky Blue */
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 10px;
+    }
+    
+    h1 {
+      color: #01579b; /* Dark Blue */
+    }
+    
+    label {
+      color: #01579b; /* Dark Blue */
+    }
+    
+    .btn-primary {
+      background-color: #01579b; /* Dark Blue */
+      border-color: #01579b; /* Dark Blue */
+    }
+    
+    .btn-primary:hover {
+      background-color: #002f6c; /* Darker Blue */
+      border-color: #002f6c; /* Darker Blue */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">+91</span>
+          </div>
+          <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="program">From where did you come to know about the internship?</label>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-primary">
+            <input type="radio" name="program" value="Website"> Website
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="program" value="Social Media"> Social Media
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="program" value="Referral"> Referral
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="program" value="Other" id="other-btn"> Other
+          </label>
+        </div>
+      </div>
+      <div class="form-group hidden" id="other-details">
+        <label for="other">Please specify:</label>
+        <input type="text" class="form-control" id="other" placeholder="Enter other details">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#other-btn').change(function() {
+        if ($(this).is(':checked')) {
+          $('#other-details').removeClass('hidden');
+        } else {
+          $('#other-details').addClass('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
