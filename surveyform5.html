@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #e9ecef;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .form-control-feedback {
+      color: #dc3545;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .btn-secondary {
+      background-color: #ffc107;
+      border-color: #ffc107;
+      color: #212529;
+    }
+
+    .btn-secondary:hover {
+      background-color: #ffca2c;
+      border-color: #ffca2c;
+      color: #212529;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Survey Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" min="1" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
+        <small class="form-text text-muted">Please enter a 10-digit phone number without any spaces or special characters.</small>
+      </div>
+      <div class="form-group">
+        <label for="education">Education Details:</label>
+        <textarea class="form-control" id="education" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="source">How did you hear about Interncall Frontend Bootcamp?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="source" id="social-media" value="social-media" required>
+          <label class="form-check-label" for="social-media">Social Media</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="source" id="friends" value="friends" required>
+          <label class="form-check-label" for="friends">Friends</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="source" id="college" value="college" required>
+          <label class="form-check-label" for="college">College</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="source" id="other" value="other" required>
+          <label class="form-check-label" for="other">Other</label>
+        </div>
+        <input type="text" class="form-control mt-2" id="other-details" placeholder="Please specify" style="display: none;">
+      </div>
+      <div class="form-group">
+        <label for="languages">Programming Languages You Know:</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="languages" id="java" value="java">
+          <label class="form-check-label" for="java">Java</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="languages" id="python" value="python">
+          <label class="form-check-label" for="python">Python</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="languages" id="c" value="c">
+          <label class="form-check-label" for="c">C</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="languages" id="cpp" value="cpp">
+          <label class="form-check-label" for="cpp">C++</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="languages" id="javascript" value="javascript">
+          <label class="form-check-label" for="javascript">JavaScript</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback:</label>
+        <textarea class="form-control" id="feedback" rows="5" maxlength="500" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('input[name="source"]').on('change', function() {
+        if ($(this).val() === 'other') {
+          $('#other-details').show();
+        } else {
+          $('#other-details').hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
